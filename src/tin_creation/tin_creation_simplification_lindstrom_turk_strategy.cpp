@@ -44,6 +44,7 @@ Polyhedron TinCreationSimplificationLindstromTurkStrategy::create( const std::ve
 
     // Set up the edge constrainer
     typedef SMS::FurtherConstrainedPlacement<SimplificationPlacement,
+                                             Polyhedron,
                                              BorderEdgesAreConstrainedEdgeMap<Polyhedron>,
                                              CornerVerticesAreConstrainedVertexMap<Polyhedron> > SimplificationConstrainedPlacement;
 //    typedef SMS::AvoidVerticalWallsPlacement<SimplificationConstrainedPlacement> SimplificationConstrainedPlacementVerticalWalls;

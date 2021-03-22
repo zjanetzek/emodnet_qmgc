@@ -45,7 +45,7 @@ namespace CGAL {
          * @brief Constrained placement class for CGAL::Surface_mesh_simplification, extending the normal constrained placement
          * to allow maintaining border vertices as well as corners in a tile
          */
-        template<class BasePlacement, class EdgeIsConstrainedMap, class VertexIsConstrainedMap>
+        template<class BasePlacement, class SurfaceMesh, class EdgeIsConstrainedMap, class VertexIsConstrainedMap>
         class FurtherConstrainedPlacement : public BasePlacement {
         public:
 
@@ -75,8 +75,8 @@ namespace CGAL {
 
             template<typename Profile>
             optional<typename Profile::Point> operator()(Profile const &aProfile) const {
-                typedef typename Profile::ECM ECM;
-                typedef typename CGAL::Halfedge_around_target_iterator<ECM> in_edge_iterator;
+              //typedef typename Profile::ECM ECM;
+                typedef typename CGAL::Halfedge_around_target_iterator<SurfaceMesh> in_edge_iterator;
 
                 // Constrained vertices
                 bool isConstrainedV0 = get(Vertex_is_constrained_map, aProfile.v0()) ;
